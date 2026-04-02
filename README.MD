@@ -1,4 +1,4 @@
-# GhanaFi — Ghana Finance & Weather Dashboard
+# CurrentsandCurrency — Ghana Finance & Weather Dashboard
 
 Real-time Ghana-focused dashboard tracking:
 - 🌤️ Local weather (Open-Meteo)
