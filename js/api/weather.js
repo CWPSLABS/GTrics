@@ -4,9 +4,6 @@
 import { CONFIG } from '../config.js';
 import { cache } from '../utils/cache.js';
 
-/**
- * Fetch current weather for given lat/lng
- */
 export async function fetchWeather(lat = CONFIG.DEFAULT_LAT, lng = CONFIG.DEFAULT_LNG) {
   const cacheKey = `weather_${lat}_${lng}`;
   const cached = cache.get(cacheKey);
@@ -37,23 +34,28 @@ export async function fetchWeather(lat = CONFIG.DEFAULT_LAT, lng = CONFIG.DEFAUL
 }
 
 /**
- * Reverse-geocode lat/lng to city name using Open-Meteo geocoding
- * (just for display — browser geolocation gives coords, not city names)
+ * Reverse-geocode lat/lng to a short suburb/city name.
+ * Prioritises suburb over district to avoid long municipal names on mobile.
  */
 export async function getCityName(lat, lng) {
-  // Open-Meteo doesn't do reverse geocoding, so we use a simple approach:
-  // You can swap this with Nominatim: https://nominatim.openstreetmap.org/reverse
   try {
     const res = await fetch(
       `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
       { headers: { 'Accept-Language': 'en' } }
     );
     const data = await res.json();
-    return data.address?.city
-        || data.address?.town
-        || data.address?.village
-        || data.address?.county
-        || CONFIG.DEFAULT_CITY;
+    const addr = data.address;
+
+    const raw = addr?.suburb
+             || addr?.neighbourhood
+             || addr?.quarter
+             || addr?.town
+             || addr?.city
+             || addr?.county
+             || CONFIG.DEFAULT_CITY;
+
+    // Hard cap at 20 characters to protect mobile layout
+    return raw.length > 20 ? raw.slice(0, 20).trim() + '…' : raw;
   } catch {
     return CONFIG.DEFAULT_CITY;
   }
