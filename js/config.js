@@ -39,10 +39,24 @@ export const CONFIG = {
     { code: 'CNY', name: 'Chinese Yuan',   flag: '🇨🇳' },
     { code: 'NGN', name: 'Naira',          flag: '🇳🇬' },
     { code: 'XOF', name: 'CFA Franc',      flag: '🇨🇮' },
+  { code: 'CAD', name: 'Canadian Dollar',  flag: '🇨🇦' },
+  { code: 'AUD', name: 'Australian Dollar',flag: '🇦🇺' },
+  { code: 'ZAR', name: 'South African Rand',flag: '🇿🇦' },
+  { code: 'INR', name: 'Indian Rupee',     flag: '🇮🇳' },
+  { code: 'JPY', name: 'Japanese Yen',     flag: '🇯🇵' },
+  { code: 'AED', name: 'UAE Dirham',       flag: '🇦🇪' },
+  { code: 'SAR', name: 'Saudi Riyal',      flag: '🇸🇦' },
+  { code: 'XAF', name: 'Central African CFA', flag: '🇨🇲' },
+  { code: 'MAD', name: 'Moroccan Dirham',  flag: '🇲🇦' },
+  { code: 'KES', name: 'Kenyan Shilling',  flag: '🇰🇪' },
+  { code: 'EGP', name: 'Egyptian Pound',   flag: '🇪🇬' },
+  
   ],
 
   // --- Crypto coins to display ---
-  CRYPTO_IDS: ['bitcoin', 'ethereum', 'tether', 'solana', 'bnb'],
+  CRYPTO_IDS: ['bitcoin', 'ethereum', 'tether', 'solana', 'bnb','cardano', 'ripple', 'dogecoin', 'litecoin',
+  'polkadot', 'chainlink', 'uniswap', 'avalanche-2',
+  'stellar', 'tron', 'shiba-inu', 'pepe'],
 
   // --- Weather code → emoji map ---
   WEATHER_ICONS: {
