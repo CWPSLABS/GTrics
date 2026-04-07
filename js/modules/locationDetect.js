@@ -1,8 +1,8 @@
-// ============================================
+
 // modules/locationDetect.js
 // Detects user's location via browser geolocation
 // Falls back to Accra, GH if denied or unavailable
-// ============================================
+
 import { getCityName } from '../api/weather.js';
 import { CONFIG } from '../config.js';
 
