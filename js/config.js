@@ -7,7 +7,7 @@ export const CONFIG = {
  //Weather API 
   // CoinGecko: no key needed for public endpoints
 EXCHANGERATE_API_KEY: '66fbbb9ba6475aaf5199366e',
-WEATHERAPI_KEY: '656970e136eab0350ba1a9e1447b3c92',  // ← add this line
+WEATHERAPI_KEY: 'ae0ba9d92e1362a424fd31c6615a7f3e', 
 
   // --- Default Location (Accra, Ghana) ---
   DEFAULT_LAT: 5.6037,
