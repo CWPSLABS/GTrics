@@ -1,7 +1,6 @@
-// ============================================
+
 // modules/currencyWidget.js
-// 24h column removed — free plan doesn't provide it
-// ============================================
+
 import { fetchCurrencyRates } from '../api/currency.js';
 import { CONFIG } from '../config.js';
 import { formatRate } from '../utils/formatter.js';
